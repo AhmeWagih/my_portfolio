@@ -51,7 +51,7 @@ const About = () => {
             time I run Code Commerce, a Youtube channel where I teach web
             developement and various front-end technologies.
           </motion.div>
-          <Link href="/#projects">
+          <Link href="/projects">
             <motion.div
               variants={slideInFromLeft(1.2)}
               className="py-2 text-gray-600 underline cursor-pointer hover:text-[#5651e5]"

@@ -24,6 +24,7 @@ const Nav = () => {
   }, []);
   return (
     <div
+      style={{ backgroundColor: "#ecf0f3" }}
       className={
         shadow
           ? "fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300"
@@ -50,7 +51,12 @@ const Nav = () => {
               <Link href="/projects">Projects</Link>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b border-[#5651e5]">
-              <Link href="/resume">Resume</Link>
+              <Link
+                target="_blank"
+                href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+              >
+                Resume
+              </Link>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b border-[#5651e5]">
               <Link href="/contact">Contact</Link>
@@ -75,7 +81,11 @@ const Nav = () => {
           }
         >
           <div className="flex w-full items-center justify-between">
-            <Link href="/" className="text-[#5651e5] font-bold">
+            <Link
+              onClick={() => setNav(false)}
+              href="/"
+              className="text-[#5651e5] font-bold"
+            >
               Ahmed Wagih
             </Link>
             <div
@@ -95,22 +105,34 @@ const Nav = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm">Home</li>
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Home
+                </li>
               </Link>
-              <Link href="/#about">
-                <li className="py-4 text-sm">About</li>
+              <Link href="/about">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  About
+                </li>
               </Link>
-              <Link href="/#skills">
-                <li className="py-4 text-sm">Skills</li>
+              <Link href="/skills">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Skills
+                </li>
               </Link>
-              <Link href="/#projects">
-                <li className="py-4 text-sm">Projects</li>
+              <Link href="/projects">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Projects
+                </li>
               </Link>
-              <Link href="/#resume">
-                <li className="py-4 text-sm">Resume</li>
-              </Link>
-              <Link href="/#contact">
-                <li className="py-4 text-sm">Contact</li>
+              {/* <Link href="/resume">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Resume
+                </li>
+              </Link> */}
+              <Link href="/contact">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Contact
+                </li>
               </Link>
             </ul>
             {/* Social Media Links */}
@@ -123,6 +145,7 @@ const Nav = () => {
                   href="https://www.linkedin.com/in/ahmed-wagih-404646225/"
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => setNav(false)}
                 >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <FaLinkedinIn />
@@ -132,17 +155,18 @@ const Nav = () => {
                   href="https://github.com/AhmeWagih"
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => setNav(false)}
                 >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </Link>
-                <Link href="/#contact">
+                <Link onClick={() => setNav(false)} href="/contact">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <AiOutlineMail />
                   </div>
                 </Link>
-                <Link href="/#resume">
+                <Link onClick={() => setNav(false)} href="/resume">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                     <BsFillPersonLinesFill />
                   </div>

@@ -1,18 +1,36 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { slideInFromTop, slideInFromLeft } from "/utils/motion";
+import { slideInFromLeft } from "/utils/motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
+// import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import emailjs from "@emailjs/browser";
 const Contact = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm("service_detkgiv", "template_8sul8xn", form.current, {
+        publicKey: "pKkiEzAOSEuCBDouv",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <div className="w-full lg:h-screen">
       <motion.div
@@ -23,7 +41,7 @@ const Contact = () => {
       >
         <motion.p
           variants={slideInFromLeft(0.5)}
-          className="text-xl tracking-widest uppercase text-[#5651e5]"
+          className="text-xl tracking-widest uppercase text-[#5651e5] mt-16"
         >
           Contact
         </motion.p>
@@ -110,7 +128,7 @@ const Contact = () => {
             className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4"
           >
             <div className="p-4">
-              <form>
+              <form ref={form} onSubmit={sendEmail}>
                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                   <motion.div
                     variants={slideInFromLeft(1.2)}
@@ -181,14 +199,18 @@ const Contact = () => {
                     rows="10"
                   />
                 </motion.div>
-                <motion.button variants={slideInFromLeft(2.2)} className="w-full p-4 text-gray-100 mt-4">
+                <motion.button
+                  type="submit"
+                  variants={slideInFromLeft(2.2)}
+                  className="w-full p-4 text-gray-100 mt-4"
+                >
                   Send Message
                 </motion.button>
               </form>
             </div>
           </motion.div>
         </div>
-        <div className='flex justify-center py-12'>
+        {/* <div className='flex justify-center py-12'>
           <Link href='/'>
               <div className='animate-bounce rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <HiOutlineChevronDoubleUp
@@ -197,7 +219,7 @@ const Contact = () => {
                 />
               </div>  
           </Link>
-        </div>
+        </div> */}
       </motion.div>
     </div>
   );
