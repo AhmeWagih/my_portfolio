@@ -32,7 +32,7 @@ const Nav = () => {
       {/* Desktop Menu */}
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         <Link href="/">
-          <Image src="/logo.png" alt="Logo Image" width={210} height={200} />
+          <Image src="/logo2.png" alt="Logo Image" width={210} height={200} />
         </Link>
         <div>
           <ul className="hidden md:flex">
@@ -80,7 +80,7 @@ const Nav = () => {
         >
           <div className="flex w-full items-center justify-between">
             <Link onClick={() => setNav(false)} href="/">
-              <Image src="/logo.png" alt="Logo Image" width={120} height={50} />
+              <Image src="/logo2.png" alt="Logo Image" width={120} height={50} />
             </Link>
             <div
               onClick={handleNav}
