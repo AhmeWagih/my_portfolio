@@ -140,7 +140,7 @@ export const projects = [
     project_name: "E-Commerce App",
     description:
       " Built an e-commerce application using React and ReactRedux, allowing users to browse, select, and purchase items conveniently.",
-    src: "/projects/E-commerce.png",
+    src: "/projects/ecommerce.png",
     url: "https://e-commerce-app-inky-gamma.vercel.app/",
     github: "https://github.com/AhmeWagih/e-commerce-app",
     tags: ["React , ", "Redux , ", "Bootstrap "],

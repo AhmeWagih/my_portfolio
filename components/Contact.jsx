@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { slideInFromLeft } from "/utils/motion";
 import { useInView } from "react-intersection-observer";
@@ -15,6 +15,8 @@ const Contact = () => {
     triggerOnce: true,
   });
   const form = useRef();
+  const [success, setSuccess] = useState(false);
+  const [failure, setFailure] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -23,10 +25,13 @@ const Contact = () => {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          setSuccess(true);
+          setFailure(false);
+          form.current.reset(); // Reset form fields
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          setSuccess(false);
+          setFailure(true);
         }
       );
     e.target.reset();
@@ -136,11 +141,12 @@ const Contact = () => {
                   >
                     <label className="uppercase text-sm py-2">Name</label>
                     <input
+                      className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
                       type="text"
                       name="name"
                       id="name"
                       placeholder="Name"
-                      className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
+                      required
                     />
                   </motion.div>
                   <motion.div
@@ -151,11 +157,11 @@ const Contact = () => {
                       Phone Number
                     </label>
                     <input
+                      className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
                       type="text"
                       name="phone"
                       id="phone"
                       placeholder="Phone Number"
-                      className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
                     />
                   </motion.div>
                 </div>
@@ -165,11 +171,12 @@ const Contact = () => {
                 >
                   <label className="uppercase text-sm py-2">Email</label>
                   <input
+                    className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Email"
-                    className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
+                    required
                   />
                 </motion.div>
                 <motion.div
@@ -178,11 +185,12 @@ const Contact = () => {
                 >
                   <label className="uppercase text-sm py-2">Subject</label>
                   <input
+                    className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
                     type="text"
                     name="subject"
                     id="subject"
                     placeholder="Subject"
-                    className="w-full outline-none p-3 rounded-xl shadow-lg shadow-gray-400"
+                    required
                   />
                 </motion.div>
                 <motion.div
@@ -197,6 +205,7 @@ const Contact = () => {
                     id="message"
                     placeholder="Message"
                     rows="10"
+                    required
                   />
                 </motion.div>
                 <motion.button
