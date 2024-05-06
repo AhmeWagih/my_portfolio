@@ -3,9 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 const Nav = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
@@ -33,8 +31,8 @@ const Nav = () => {
     >
       {/* Desktop Menu */}
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <Link href="/" className="text-[#5651e5] font-bold text-xl font-Rubik">
-          Ahmed Wagih
+        <Link href="/">
+          <Image src="/logo.png" alt="Logo Image" width={210} height={200} />
         </Link>
         <div>
           <ul className="hidden md:flex">
@@ -81,12 +79,8 @@ const Nav = () => {
           }
         >
           <div className="flex w-full items-center justify-between">
-            <Link
-              onClick={() => setNav(false)}
-              href="/"
-              className="text-[#5651e5] font-bold"
-            >
-              Ahmed Wagih
+            <Link onClick={() => setNav(false)} href="/">
+              <Image src="/logo.png" alt="Logo Image" width={120} height={50} />
             </Link>
             <div
               onClick={handleNav}
@@ -97,7 +91,7 @@ const Nav = () => {
           </div>
           {/* Mobile Menu Body */}
           <div className="border-b border-gray-300 my-4">
-            <p className="w-[85%] md:w-[90%] py-4">
+            <p className="w-[85%] md:w-[90%] py-4 leading-loose">
               Let&#39;s build something amazing together
             </p>
           </div>
@@ -124,11 +118,14 @@ const Nav = () => {
                   Projects
                 </li>
               </Link>
-              {/* <Link href="/resume">
+              <Link
+                target="_blank"
+                href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Resume
                 </li>
-              </Link> */}
+              </Link>
               <Link href="/contact">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Contact
@@ -136,7 +133,7 @@ const Nav = () => {
               </Link>
             </ul>
             {/* Social Media Links */}
-            <div className="pt-40">
+            <div className="pt-20">
               <p className="uppercase tracking-widest text-[#5651e5]">
                 Lets Connect
               </p>
@@ -146,30 +143,32 @@ const Nav = () => {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setNav(false)}
+                  className="rounded-full shadow-lg shadow-gray-400 p-6 me-2 cursor-pointer hover:scale-110 ease-in duration-300"
                 >
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaLinkedinIn />
-                  </div>
+                  <FaLinkedinIn />
                 </Link>
                 <Link
                   href="https://github.com/AhmeWagih"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setNav(false)}
+                  className="rounded-full shadow-lg shadow-gray-400 p-6 me-2 cursor-pointer hover:scale-110 ease-in duration-300"
                 >
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaGithub />
-                  </div>
+                  <FaGithub />
                 </Link>
-                <Link onClick={() => setNav(false)} href="/contact">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <AiOutlineMail />
-                  </div>
+                <Link
+                  onClick={() => setNav(false)}
+                  href="/contact"
+                  className="rounded-full shadow-lg shadow-gray-400 p-6 me-2 cursor-pointer hover:scale-110 ease-in duration-300"
+                >
+                  <AiOutlineMail />
                 </Link>
-                <Link onClick={() => setNav(false)} href="/resume">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <BsFillPersonLinesFill />
-                  </div>
+                <Link
+                  className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
+                  href="https://api.whatsapp.com/send?phone=+201113078687&text=Hello%20Ahmed%20Wagih"
+                  target="_blank"
+                >
+                  <FaWhatsapp />
                 </Link>
               </div>
             </div>

@@ -5,9 +5,8 @@ import { slideInFromLeft } from "/utils/motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
 // import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
 const Contact = () => {
@@ -112,16 +111,17 @@ const Contact = () => {
                     <FaGithub />
                   </Link>
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
                   >
                     <AiOutlineMail />
                   </Link>
                   <Link
                     className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
-                    href="/#resume"
+                    href="https://api.whatsapp.com/send?phone=+201113078687&text=Hello%20Ahmed%20Wagih"
+                    target="_blank"
                   >
-                    <BsFillPersonLinesFill />
+                    <FaWhatsapp />
                   </Link>
                 </motion.div>
               </div>

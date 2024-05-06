@@ -68,12 +68,15 @@ const Hero = () => {
                 <FaGithub />
               </div>
             </Link>
-            <Link href="/#contact">
+            <Link href="/contact">
               <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <AiOutlineMail />
               </div>
             </Link>
-            <Link href="/#resume">
+            <Link
+              target="_blank"
+              href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+            >
               <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <BsFillPersonLinesFill />
               </div>
