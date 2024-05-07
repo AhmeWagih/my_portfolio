@@ -19,7 +19,7 @@ const Skills = () => {
       >
         <motion.p
           variants={slideInFromLeft(0.5)}
-          className="text-xl tracking-widest uppercase text-[#5651e5]"
+          className="text-xl tracking-widest uppercase text-[#5651e5] mt-20"
         >
           Skills
         </motion.p>

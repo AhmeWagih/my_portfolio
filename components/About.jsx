@@ -20,7 +20,7 @@ const About = () => {
         <div className="col-span-2">
           <motion.div
             variants={slideInFromLeft(0.2)}
-            className="uppercase text-xl tracking-widest text-[#5651e5]"
+            className="uppercase text-xl tracking-widest text-[#5651e5] mt-5"
           >
             About
           </motion.div>

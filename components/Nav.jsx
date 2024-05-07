@@ -74,7 +74,7 @@ const Nav = () => {
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+              ? "fixed left-0 top-0 w-[80%] sm:w-[60%] md:w-[45%] lg:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
               : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
@@ -90,7 +90,7 @@ const Nav = () => {
             </div>
           </div>
           {/* Mobile Menu Body */}
-          <div className="border-b border-gray-300 my-4">
+          <div className="border-b border-gray-300">
             <p className="w-[85%] md:w-[90%] py-4 leading-loose">
               Let&#39;s build something amazing together
             </p>
@@ -133,11 +133,11 @@ const Nav = () => {
               </Link>
             </ul>
             {/* Social Media Links */}
-            <div className="pt-20">
+            <div className="pt-20 max-w-[400px]">
               <p className="uppercase tracking-widest text-[#5651e5]">
                 Lets Connect
               </p>
-              <div className="flex justify-between my-4 w-full sm:w-[80%]">
+              <div className="flex justify-between my-4">
                 <Link
                   href="https://www.linkedin.com/in/ahmed-wagih-404646225/"
                   target="_blank"
