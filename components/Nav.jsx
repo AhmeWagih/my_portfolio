@@ -75,7 +75,7 @@ const Nav = () => {
           className={
             nav
               ? "fixed left-0 top-0 w-[80%] sm:w-[60%] md:w-[45%] lg:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+              : "hidden fixed left-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
           <div className="flex w-full items-center justify-between">
@@ -143,7 +143,7 @@ const Nav = () => {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setNav(false)}
-                  className="rounded-full shadow-lg shadow-gray-400 p-6 me-2 cursor-pointer hover:scale-110 ease-in duration-300"
+                  className="rounded-full shadow-lg shadow-gray-400 p-6 ms-[-20px] me-2 cursor-pointer hover:scale-110 ease-in duration-300"
                 >
                   <FaLinkedinIn />
                 </Link>

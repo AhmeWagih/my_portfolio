@@ -25,7 +25,7 @@ const Skills = () => {
         <motion.h2 variants={slideInFromLeft(0.8)} className="py-4">
           Here are some of my projects
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-fit sm:w-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-8">
           {projects.map((image, index) => (
             <ProjectCard
               key={index}
