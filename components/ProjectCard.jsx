@@ -1,8 +1,15 @@
-"use client";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Image from "next/image";
-import Link from "next/link";
+'use client'
+
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ExternalLink, Github } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+
 const ProjectCard = ({
   src,
   width,
@@ -15,52 +22,63 @@ const ProjectCard = ({
   github,
   description,
 }) => {
+  const [isHovered, setIsHovered] = useState(false)
   const { ref, inView } = useInView({
     triggerOnce: true,
-  });
-  const imageVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-  const animationDelay = 0.3;
+    threshold: 0.1,
+  })
+
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      variants={imageVariants}
-      animate={inView ? "visible" : "hidden"}
-      custom={index}
-      transition={{ delay: index * animationDelay }}
-      className="overflow-hidden relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl group hover:bg-gradient-to-r from-[#5651e5] to-[#709dff]"
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="h-full" // Ensures card takes up full height
     >
-      <Image
-        className="rounded-xl group-hover:opacity-10"
-        src={src}
-        width={width}
-        height={height}
-        alt={alt}
-      />
-      <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full">
-        <h3 className="text-2xl text-white tracking-wider text-center">
-          {project_name}
-        </h3>
-        <p className="p-4 text-white text-center">{description}</p>
-        <p className="pb-4  text-white text-center">{tags}</p>
-        <div className="flex justify-center">
-          <Link target="_blank" href={url}>
-            <p className="mr-4 text-center p-3 rounded-lg bg-white hover:bg-indigo-700 hover:text-white text-gray-700 font-bold text-lg cursor-pointer">
-              Demo
-            </p>
-          </Link>
-          <Link target="_blank" href={github}>
-            <p className="text-center p-3 rounded-lg bg-white hover:bg-indigo-700 hover:text-white text-gray-700 font-bold text-lg cursor-pointer">
-              Repo
-            </p>
-          </Link>
+      <Card
+        className="overflow-hidden relative group h-full flex flex-col" // Flex ensures content fits evenly
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="relative aspect-video">
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            layout="responsive"
+            className="transition-transform duration-300 ease-in-out transform group-hover:scale-110"
+          />
         </div>
-      </div>
+        <CardContent className="flex-grow p-4 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">{project_name}</h3>
+            <p title={description} className="text-gray-600 mb-4 ">{description}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {tags.map((tag, tagIndex) => (
+                <Badge key={tagIndex} variant="outline">{tag}</Badge>
+              ))}
+            </div>
+          </div>
+          <div className="flex space-x-4">
+            <Button asChild variant="secondary" className="bg-purple-600 hover:bg-purple-700 text-white">
+              <Link href={url} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Demo
+              </Link>
+            </Button>
+            <Button asChild variant="secondary" className="bg-gray-700 hover:bg-gray-600 text-white">
+              <Link href={github} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" />
+                Repo
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </motion.div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

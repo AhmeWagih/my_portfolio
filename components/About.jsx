@@ -47,9 +47,7 @@ const About = () => {
             I started web developement in 2022 managing multiple e-commerce
             websites on CMS platforms such as WordPress, BigCommerce, and
             Shopify. I have experience working directly with clients and taking
-            mock wireframes all the way to deployed applications. In my spare
-            time I run Code Commerce, a Youtube channel where I teach web
-            developement and various front-end technologies.
+            mock wireframes all the way to deployed applications. 
           </motion.div>
           <Link href="/projects">
             <motion.div
@@ -61,8 +59,8 @@ const About = () => {
           </Link>
         </div>
         <motion.div
-          variants={slideInFromRight(0.5)}
-          className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300"
+          variants={slideInFromRight(2)}
+          className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4"
         >
           <Image
             src="/assets/about.jpeg"

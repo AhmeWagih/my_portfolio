@@ -2,34 +2,40 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import { Card, CardContent } from "./ui/card";
 
-const SkillData = ({ src, width, height, index, alt, skill_name }) => {
+const SkillData = ({ src, index, alt, skill_name }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
-  const imageVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-  const animationDelay = 0.3;
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      variants={imageVariants}
-      animate={inView ? "visible" : "hidden"}
-      custom={index}
-      transition={{ delay: index * animationDelay }}
-      className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300"
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      
     >
-      <div className="grid grid-cols-2 gap-4 justify-center items-center">
-        <div className="m-auto">
-          <Image src={src} width={width} height={height} alt={alt} />
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <h3>{skill_name}</h3>
-        </div>
-      </div>
+      <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <CardContent className="p-6">
+          <motion.div
+            className="flex flex-col items-center justify-center space-y-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="relative w-16 h-16 md:w-20 md:h-20">
+              <Image
+                src={src}
+                layout="fill"
+                objectFit="contain"
+                alt={alt}
+                className="filter drop-shadow-md"
+              />
+            </div>
+            <h3 className="text-lg font-semibold text-center">{skill_name}</h3>
+          </motion.div>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 };

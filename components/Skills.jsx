@@ -10,12 +10,12 @@ const Skills = () => {
     triggerOnce: true,
   });
   return (
-    <div className="w-full lg:h-screen p-2">
+    <div className="w-full p-2 py-10">
       <motion.div
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="max-w-[1240px] mx-auto flex flex-col justify-center h-full"
+        className="max-w-[1240px] mx-auto flex flex-col justify-center"
       >
         <motion.p
           variants={slideInFromLeft(0.5)}

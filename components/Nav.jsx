@@ -30,9 +30,9 @@ const Nav = () => {
       }
     >
       {/* Desktop Menu */}
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 overflow-hidden">
         <Link href="/">
-          <Image src="/logo2.png" alt="Logo Image" width={210} height={200} />
+          <Image src="/logo2.png" alt="Logo Image" width={210} height={100} />
         </Link>
         <div>
           <ul className="hidden md:flex">
@@ -51,7 +51,7 @@ const Nav = () => {
             <li className="ml-10 text-sm uppercase hover:border-b border-[#5651e5]">
               <Link
                 target="_blank"
-                href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+                href="https://drive.google.com/file/d/17pMdjT_B2HCXb9WUltH5E5WkCEL8UqiS/view?usp=sharing"
               >
                 Resume
               </Link>
@@ -120,7 +120,7 @@ const Nav = () => {
               </Link>
               <Link
                 target="_blank"
-                href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+                href="https://drive.google.com/file/d/17pMdjT_B2HCXb9WUltH5E5WkCEL8UqiS/view?usp=sharing"
               >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Resume
@@ -139,7 +139,7 @@ const Nav = () => {
               </p>
               <div className="flex justify-between my-4">
                 <Link
-                  href="https://www.linkedin.com/in/ahmed-wagih-404646225/"
+                  href="https://www.linkedin.com/in/ahmedwagih02/"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setNav(false)}

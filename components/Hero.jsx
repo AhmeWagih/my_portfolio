@@ -51,7 +51,7 @@ const Hero = () => {
             className="flex items-center justify-between max-w-[330px] m-auto py-4"
           >
             <Link
-              href="https://www.linkedin.com/in/ahmed-wagih-404646225/"
+              href="https://www.linkedin.com/in/ahmedwagih02/"
               target="_blank"
               rel="noreferrer"
             >
@@ -75,7 +75,7 @@ const Hero = () => {
             </Link>
             <Link
               target="_blank"
-              href="https://drive.google.com/file/d/15XOWonE_WFaZfekBK9gHrkHr6IfFLfI8/view?usp=sharing"
+              href="https://drive.google.com/file/d/17pMdjT_B2HCXb9WUltH5E5WkCEL8UqiS/view?usp=sharing"
             >
               <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <BsFillPersonLinesFill />
