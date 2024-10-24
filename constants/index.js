@@ -158,6 +158,18 @@ export const projects = [
     alt: "Youtube Clone",
   },
   {
+    project_name: "Article Summerizer",
+    description:
+      " Developed a YouTube clone application using React and Tailwind CSS, integrating it with YouTube’s API to fetch and display videos, enabling users to search and watch videos seamlessly.",
+    src: "/projects/ai-sum.png",
+    url: "https://youtube-clone-eight-nu.vercel.app/",
+    github: "https://github.com/AhmeWagih/youtube-clone",
+    tags: ["React  ", "Tailwind CSS  ", "Rapid API"],
+    width: 550,
+    height: 300,
+    alt: "Youtube Clone",
+  },
+  {
     project_name: "E-Commerce App",
     description:
       " Built an e-commerce application using React and ReactRedux, allowing users to browse, select, and purchase items conveniently.",

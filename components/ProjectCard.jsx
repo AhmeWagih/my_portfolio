@@ -55,14 +55,14 @@ const ProjectCard = ({
           <div>
             <h3 className="text-xl font-semibold mb-2">{project_name}</h3>
             <p title={description} className="text-gray-600 mb-4 ">{description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-4 ">
               {tags.map((tag, tagIndex) => (
-                <Badge key={tagIndex} variant="outline">{tag}</Badge>
+                <Badge key={tagIndex} variant="outline" className='hover:bg-slate-200 cursor-pointer'>{tag}</Badge>
               ))}
             </div>
           </div>
           <div className="flex space-x-4">
-            <Button asChild variant="secondary" className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button asChild variant="secondary" className="bg-[#5651e5] hover:bg-[#5651e5]/80 text-white">
               <Link href={url} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Demo
