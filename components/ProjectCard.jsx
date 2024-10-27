@@ -21,6 +21,7 @@ const ProjectCard = ({
   url,
   github,
   description,
+  disabled
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const { ref, inView } = useInView({
@@ -62,11 +63,24 @@ const ProjectCard = ({
             </div>
           </div>
           <div className="flex space-x-4">
-            <Button asChild variant="secondary" className="bg-[#5651e5] hover:bg-[#5651e5]/80 text-white">
-              <Link href={url} target="_blank" rel="noopener noreferrer">
+            <Button asChild
+              variant="secondary"
+              className={`text-white ${disabled
+                ? "bg-[#5651e5] hover:bg-[#5651e5]/80 cursor-not-allowed"
+                : "bg-[#5651e5] hover:bg-[#5651e5]/80"
+                }`}
+              disabled={disabled}>
+              {disabled ?
+                <div href={url} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Demo
-              </Link>
+              </div>
+                :
+                <Link href={url} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Demo
+                </Link>
+              }
             </Button>
             <Button asChild variant="secondary" className="bg-gray-700 hover:bg-gray-600 text-white">
               <Link href={github} target="_blank" rel="noopener noreferrer">
