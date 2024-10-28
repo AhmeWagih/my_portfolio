@@ -9,6 +9,30 @@ import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 // import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
+
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/in/ahmedwagih02/",
+    icon: <FaLinkedinIn aria-hidden="true" />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/AhmeWagih",
+    icon: <FaGithub aria-hidden="true" />,
+    label: "GitHub",
+  },
+  {
+    href: "/contact",
+    icon: <AiOutlineMail aria-hidden="true" />,
+    label: "Email",
+  },
+  {
+    href: "https://api.whatsapp.com/send?phone=+201113078687&text=Hello%20Ahmed%20Wagih",
+    icon: <FaWhatsapp aria-hidden="true" />,
+    label: "WhatsApp",
+  },
+]
+
 const Contact = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -69,7 +93,7 @@ const Contact = () => {
                 />
               </motion.div>
               <div>
-                <motion.h2 variants={slideInFromLeft(1.2)} className="py-2">
+                <motion.h2 variants={slideInFromLeft(1.2)} className="py-2 mt-5 text-[#5651e5]">
                   Ahmed Wagih
                 </motion.h2>
                 <motion.p variants={slideInFromLeft(1.4)}>
@@ -94,35 +118,20 @@ const Contact = () => {
                   variants={slideInFromLeft(2)}
                   className="flex items-center justify-between py-4"
                 >
-                  <Link
-                    className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
-                    href="https://www.linkedin.com/in/ahmedwagih02/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaLinkedinIn />
-                  </Link>
-                  <Link
-                    className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
-                    href="https://github.com/AhmeWagih"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaGithub />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
-                  >
-                    <AiOutlineMail />
-                  </Link>
-                  <Link
-                    className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300"
-                    href="https://api.whatsapp.com/send?phone=+201113078687&text=Hello%20Ahmed%20Wagih"
-                    target="_blank"
-                  >
-                    <FaWhatsapp />
-                  </Link>
+                  <div className="grid grid-cols-4 gap-4">
+                    {socialLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg text-gray-800 hover:text-[#5651e5] transition-colors duration-200"
+                        aria-label={link.label}
+                      >
+                        {link.icon}
+                      </Link>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </div>

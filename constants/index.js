@@ -135,15 +135,15 @@ export const skills = [
 ];
 export const projects = [
   {
-    project_name: "My Portfolio",
-    description:"This is my portfolio, I am using Next.js and Tailwind CSS. I am using Framer Motion for animation and Figma for design.",
-    src: "/projects/portfolio.png",
-    url: "https://ahmed-wagih-one.vercel.app/",
-    github: "https://github.com/AhmeWagih/my_portfolio",
-    tags: ["Next","React", "Tailwind CSS ", "Framer Motion"],
+    project_name: "Earth Simulator",
+    description:"Created an interactive platform using NASA data to explore Earth's systems, featuring quizzes, AI-generated videos, and a personalized footprint calculator. The platform provides real-time feedback on sustainable choices, helping users understand and reduce their environmental impact.",
+    src: "/projects/earth.png",
+    url: "https://nasa-space-app-mauve.vercel.app",
+    github: "https://github.com/AhmeWagih/earth_simulator",
+    tags: ["Next","React",'Three.js',"GLSX", 'LIL-GUI',"Tailwind CSS ", "Framer Motion"],
     width: 550,
     height: 300,
-    alt: "My Portfolio",
+    alt: "Earth Simulator",
   },
   {
     project_name: "YoutubeClone",
@@ -156,6 +156,17 @@ export const projects = [
     width: 550,
     height: 300,
     alt: "Youtube Clone",
+  },
+  {
+    project_name: "My Portfolio",
+    description:"This is my portfolio, I am using Next.js and Tailwind CSS. I am using Framer Motion for animation and Figma for design.",
+    src: "/projects/portfolio.png",
+    url: "https://ahmed-wagih-one.vercel.app/",
+    github: "https://github.com/AhmeWagih/my_portfolio",
+    tags: ["Next","React", "Tailwind CSS ", "Framer Motion"],
+    width: 550,
+    height: 300,
+    alt: "My Portfolio",
   },
   {
     project_name: "Article Summarizer",
@@ -235,7 +246,7 @@ export const projects = [
   {
     project_name: "Movie App",
     description:
-      "This is my portfolio website. It is a React project. I have used Next.js, React, Tailwind and Framer Motion.",
+      "Developed a simple movie application using React and Tailwind CSS.",
     src: "/projects/movieapp.png",
     url: "https://movie-app-one-peach.vercel.app/",
     github: "https://github.com/AhmeWagih/movie-app",
