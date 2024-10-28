@@ -255,28 +255,28 @@ export const projects = [
     height: 300,
     alt: "Movie App",
   },
-  {
-    project_name: "Wego Dashboard",
-    description:
-      "Responsive Website Using HTML , CSS",
-    src: "/projects/design4.png",
-    url: "https://html-and-css-template-four-seven.vercel.app/",
-    github: "https://github.com/AhmeWagih/HTML_and_CSS_template_Four",
-    tags: ["HTML  ", "CSS "],
-    width: 550,
-    height: 300,
-    alt: "Wego Dashboard",
-  },
-  {
-    project_name: "Wego World",
-    description:
-      "Responsive Website Using HTML , CSS",
-    src: "/projects/design3.png",
-    url: "https://html-and-css-template-three.vercel.app/",
-    github: "https://github.com/AhmeWagih/HTML_and_CSS_template_Three",
-    tags: ["HTML  ", "CSS "],
-    width: 550,
-    height: 300,
-    alt: "Wego World",
-  },
+  // {
+  //   project_name: "Wego Dashboard",
+  //   description:
+  //     "Responsive Website Using HTML , CSS",
+  //   src: "/projects/design4.png",
+  //   url: "https://html-and-css-template-four-seven.vercel.app/",
+  //   github: "https://github.com/AhmeWagih/HTML_and_CSS_template_Four",
+  //   tags: ["HTML  ", "CSS "],
+  //   width: 550,
+  //   height: 300,
+  //   alt: "Wego Dashboard",
+  // },
+  // {
+  //   project_name: "Wego World",
+  //   description:
+  //     "Responsive Website Using HTML , CSS",
+  //   src: "/projects/design3.png",
+  //   url: "https://html-and-css-template-three.vercel.app/",
+  //   github: "https://github.com/AhmeWagih/HTML_and_CSS_template_Three",
+  //   tags: ["HTML  ", "CSS "],
+  //   width: 550,
+  //   height: 300,
+  //   alt: "Wego World",
+  // },
 ];
