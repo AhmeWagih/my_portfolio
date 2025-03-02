@@ -35,10 +35,10 @@ const ProjectCard = ({
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="h-full" // Ensures card takes up full height
+      className="h-full" 
     >
       <Card
-        className="overflow-hidden relative group h-full flex flex-col" // Flex ensures content fits evenly
+        className="overflow-hidden relative group h-full flex flex-col"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

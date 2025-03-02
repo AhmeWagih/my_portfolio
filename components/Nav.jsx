@@ -1,50 +1,24 @@
 "use client";
+import { menuItems, socialLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-
-const menuItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/projects", label: "Projects" },
-  {
-    href: "https://drive.google.com/file/d/17pMdjT_B2HCXb9WUltH5E5WkCEL8UqiS/view?usp=sharing",
-    label: "Resume",
-    target: "_blank",
-  },
-  { href: "/contact", label: "Contact" },
-]
-
-const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/ahmedwagih02/",
-    icon: <FaLinkedinIn aria-hidden="true" />,
-    label: "LinkedIn",
-  },
-  {
-    href: "https://github.com/AhmeWagih",
-    icon: <FaGithub aria-hidden="true" />,
-    label: "GitHub",
-  },
-  {
-    href: "/contact",
-    icon: <AiOutlineMail aria-hidden="true" />,
-    label: "Email",
-  },
-  {
-    href: "https://api.whatsapp.com/send?phone=+201113078687&text=Hello%20Ahmed%20Wagih",
-    icon: <FaWhatsapp aria-hidden="true" />,
-    label: "WhatsApp",
-  },
-]
-
+import { useEffect, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { PiMoonStars, PiSun } from 'react-icons/pi';
+import { useTheme } from 'next-themes';
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [hasShadow, setHasShadow] = useState(false)
-
+  const { theme, setTheme } = useTheme();
+  const handleChangeTheme = () => {
+    if (theme === 'light') {
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+      setTheme('light');
+    }
+  };
   useEffect(() => {
     const handleScroll = () => {
       setHasShadow(window.scrollY >= 90)
@@ -56,33 +30,61 @@ const Nav = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   return (
     <nav
-      className={`fixed w-full z-50 transition-shadow duration-300 ${hasShadow ? "shadow-xl" : ""
+      className={`fixed w-full z-50 transition-shadow duration-300 overflow-hidden ${hasShadow ? "shadow-xl" : ""
         }`}
       style={{ backgroundColor: "#ecf0f3" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex-shrink-0">
-            <Image src="/logo2.png" alt="Logo Image" width={210} height={100} className="" />
+      <div className="container">
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="">
+            <Image 
+              src="/logo2.png" 
+              alt="Logo Image" 
+              width={210} 
+              height={64} 
+              className="w-[150px] h-[100px] sm:w-[200px] sm:h-[100px]" 
+            />
           </Link>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="flex items-baseline gap-4">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   target={item.target}
-                  className="text-gray-800 hover:text-[#5651e5] px-3 py-2 rounded-md text-md font-medium transition-colors duration-200"
+                  className="text-gray-800 hover:text-[#5651e5] text-md font-medium transition-colors duration-200"
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
           </div>
-          <div className="md:hidden">
+          {/* <div className="hidden md:block">
+            <button
+              onClick={handleChangeTheme}
+              className="cursor-pointer flex items-center justify-center w-[40px] h-[40px] rounded-lg border-1 border-[#E5E6E6] dark:border-[#1F273D] px-0"
+            >
+              {theme === 'light' ? (
+                <PiMoonStars size={20} className=" text-yellow-400" />
+              ) : (
+                <PiSun size={20} className=" text-yellow-400" />
+              )}
+            </button>
+          </div> */}
+          <div className="flex items-center justify-center gap-2 md:hidden">
+            {/* <button
+              onClick={handleChangeTheme}
+              className="cursor-pointer flex items-center justify-center w-[40px] h-[40px] rounded-lg border-1 border-[#E5E6E6] dark:border-[#1F273D] px-0"
+            >
+              {theme === 'light' ? (
+                <PiMoonStars size={20} className=" text-yellow-400" />
+              ) : (
+                <PiSun size={20} className=" text-yellow-400" />
+              )}
+            </button> */}
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-[#5651e5] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#5651e5]"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-[#5651e5]"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -92,6 +94,7 @@ const Nav = () => {
                 <AiOutlineMenu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
+
           </div>
         </div>
       </div>
@@ -102,7 +105,8 @@ const Nav = () => {
         aria-hidden={!isMenuOpen}
       >
         <div
-          className={`fixed inset-y-0 right-0 max-w-xs w-full bg-[#ecf0f3] shadow-xl transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed right-[-120%] md:right-[-100%] md:w-[360px] w-max-sm h-[95%] bg-[#ecf0f3] rounded-lg transform transition-transform duration-300 ease-in-out 
+            ${isMenuOpen ? "right-5 top-5" : "right-[-120%] md:right-[-100%] md:w-[360px] w-3/4 xs:w-9/12"
             }`}
         >
           <div className="flex items-center justify-between p-6 mt-[-50px]">
@@ -139,7 +143,7 @@ const Nav = () => {
             <p className="mb-4 text-sm font-semibold tracking-widest text-[#5651e5] uppercase">
               Let&#39;s Connect
             </p>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -147,7 +151,7 @@ const Nav = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={toggleMenu}
-                  className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg text-gray-800 hover:text-[#5651e5] transition-colors duration-200"
+                  className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md text-gray-800 hover:text-[#5651e5] transition-colors duration-200"
                   aria-label={link.label}
                 >
                   {link.icon}

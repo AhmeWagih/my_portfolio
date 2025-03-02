@@ -10,26 +10,26 @@ const About = () => {
     triggerOnce: true,
   });
   return (
-    <div className="w-full md:h-screen p-2 flex items-center py-16">
+    <div className="w-full md:h-screen flex items-center">
       <motion.div
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8"
+        className=" md:grid grid-cols-2 gap-8"
       >
-        <div className="col-span-2">
+        <div className="flex flex-col gap-4">
           <motion.div
             variants={slideInFromLeft(0.2)}
-            className="uppercase text-xl tracking-widest text-[#5651e5] mt-5"
+            className="uppercase text-xl tracking-widest text-[#5651e5]"
           >
             About
           </motion.div>
-          <motion.h2 variants={slideInFromLeft(0.5)} className="py-4">
+          <motion.h2 variants={slideInFromLeft(0.5)} className="">
             Who I Am
           </motion.h2>
           <motion.div
             variants={slideInFromLeft(0.8)}
-            className="py-2 text-gray-600 leading-loose"
+            className="text-gray-600 leading-loose"
           >
             I specialize in building mobile-responsive front-end UI applications that integrate seamlessly with APIs and various backend technologies. 
             My passion for learning new technologies drives me to explore multiple solutions to a problem. 
@@ -50,7 +50,7 @@ const About = () => {
           <Link href="/projects">
             <motion.div
               variants={slideInFromLeft(1.2)}
-              className="py-2 text-gray-600 underline cursor-pointer hover:text-[#5651e5]"
+              className="text-gray-600 underline cursor-pointer hover:text-[#5651e5]"
             >
               Check out some of my latest projects.
             </motion.div>
@@ -58,7 +58,7 @@ const About = () => {
         </div>
         <motion.div
           variants={slideInFromRight(2)}
-          className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4"
+          className="w-full h-auto shadow-md rounded-lg flex items-center justify-center p-3"
         >
           <Image
             src="/assets/about.jpeg"

@@ -17,9 +17,9 @@ const SkillData = ({ src, index, alt, skill_name }) => {
       
     >
       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <CardContent className="p-6">
+        <CardContent className="p-4">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-4"
+            className="flex flex-col items-center justify-center gap-2"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -32,7 +32,7 @@ const SkillData = ({ src, index, alt, skill_name }) => {
                 className="filter drop-shadow-md"
               />
             </div>
-            <h3 className="text-lg font-semibold text-center">{skill_name}</h3>
+            {/* <h3 className="text-lg font-semibold text-center">{skill_name}</h3> */}
           </motion.div>
         </CardContent>
       </Card>
